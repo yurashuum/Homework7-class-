@@ -56,8 +56,46 @@ namespace Homework7_class_
         }
 
         public Worker()
-        {      
+        {
         }
         #endregion
+
+        //# region Поля
+        ///// <summary>
+        ///// Айди 
+        ///// </summary>
+        //public Guid id;
+
+        ///// <summary>
+        ///// Время добавления
+        ///// </summary>
+        //public DateTime addtime;
+
+        ///// <summary>
+        ///// Полное имя
+        ///// </summary>
+        //public string fullname;
+
+        ///// <summary>
+        ///// Возраст
+        ///// </summary>
+        //public int age;
+
+        ///// <summary>
+        ///// Возраст
+        ///// </summary>
+        //public int height;
+
+        ///// <summary>
+        ///// Дата рождения
+        ///// </summary>
+        //public DateTime wasBorn;
+
+        ///// <summary>
+        ///// Город 
+        ///// </summary>
+        //public string city;
+
+        //#endregion
     }
 }

@@ -20,21 +20,22 @@ namespace Homework7_class_
 
                 List<Worker> workers = new List<Worker>();
 
-               
+                
+            
                 {
-                    
-                    new Worker() { Id = Guid.NewGuid() };
+                    //ЗАКИНУТЬ ИЗМЕНЁННЫЙ В ГИТХАБ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    workers.Add(new Worker() { Id = Guid.NewGuid() });
                     workers.Add(new Worker() { Addtime = DateTime.Now });
                     Console.WriteLine("Введите своё ФИО");
-                    new Worker() {  Fullname = (Console.ReadLine()) };
+                    workers.Add(new Worker() { Fullname = (Console.ReadLine()) });
                     Console.WriteLine("Введите свой возраст");
-                    new Worker() { Age = int.Parse(Console.ReadLine()) };
+                    workers.Add(new Worker() { Age = int.Parse(Console.ReadLine()) });
                     Console.WriteLine("Введите свой рост");
-                    new Worker() { Height = int.Parse(Console.ReadLine()) };
+                    workers.Add(new Worker() { Height = int.Parse(Console.ReadLine()) });
                     Console.WriteLine("Введите свою дату рождения");
-                    new Worker() { WasBorn = DateTime.Parse(Console.ReadLine()) };
+                    workers.Add(new Worker() { WasBorn = DateTime.Parse(Console.ReadLine()) });
                     Console.WriteLine("Введите своё место рождения");
-                    new Worker() { City = (Console.ReadLine()) };
+                    workers.Add(new Worker() { City = Console.ReadLine() }); 
                 }
 
                     

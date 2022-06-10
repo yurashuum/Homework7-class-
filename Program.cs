@@ -26,7 +26,46 @@ namespace Homework7_class_
             }
             else if (num == 2)
             {
-                repository.Addworkers();
+                
+                Worker worker = new Worker();
+
+                repository.WorkerID(worker);
+
+                //Console.WriteLine("Введите ID");
+                //worker.Id = int.Parse(Console.ReadLine());
+
+                worker.Addtime = DateTime.Now;
+
+                Console.WriteLine(" Введите Ваше ФИО ");  
+                worker.Fullname = Console.ReadLine();
+               
+                Console.WriteLine("Введите возраст");
+                string ageInput = Console.ReadLine();
+                int age = 0;
+                while (!int.TryParse(ageInput, out age))
+                {
+                    Console.WriteLine("Возраст это число!");
+                    ageInput = Console.ReadLine();
+                }
+                worker.Age = age;
+                
+                Console.WriteLine("Введите Рост");
+                string heighInput = Console.ReadLine();
+                int heigh = 0;
+                while (!int.TryParse(heighInput, out heigh))
+                {
+                    Console.WriteLine("Рост это число!");
+                    heighInput = Console.ReadLine();
+                }
+                worker.Height = heigh;
+                
+                Console.WriteLine("Введите дату рождения");
+                worker.WasBorn = DateTime.Parse(Console.ReadLine());
+
+                Console.WriteLine("Введите место рождения.");
+                worker.City = Console.ReadLine();
+
+                repository.Addworkers(worker);
             }
             else if (num == 3)
             {

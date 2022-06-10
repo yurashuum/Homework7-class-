@@ -11,7 +11,7 @@ namespace Homework7_class_
         /// <summary>
         /// Айди сотрудника 
         /// </summary> 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// время добавления записи
         /// </summary>
@@ -44,7 +44,7 @@ namespace Homework7_class_
 
 
         #region конструктор
-        public Worker(Guid Id, DateTime Addtime, string Fullname, int Age, int Height, DateTime WasBorn, string City)
+        public Worker(int Id, DateTime Addtime, string Fullname, int Age, int Height, DateTime WasBorn, string City)
         {
             this.Id = Id;
             this.Addtime = Addtime;

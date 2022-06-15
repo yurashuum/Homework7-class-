@@ -29,10 +29,12 @@ namespace Homework7_class_
                 
                 Worker worker = new Worker();
 
-                repository.WorkerID(worker);
+                
+                //repository.WorkerID(worker);
 
                 //Console.WriteLine("Введите ID");
                 //worker.Id = int.Parse(Console.ReadLine());
+                
 
                 worker.Addtime = DateTime.Now;
 
@@ -62,7 +64,7 @@ namespace Homework7_class_
                 Console.WriteLine("Введите дату рождения");
                 worker.WasBorn = DateTime.Parse(Console.ReadLine());
 
-                Console.WriteLine("Введите место рождения.");
+                Console.WriteLine("Введите место рождения");
                 worker.City = Console.ReadLine();
 
                 repository.Addworkers(worker);

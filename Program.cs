@@ -10,7 +10,7 @@ namespace Homework7_class_
     internal class Program
     {
         static void Main(string[] args)
-        {
+        { 
             Console.WriteLine("Нажмите определённую цифру, чтобы выолнить действие");
             Thread.Sleep(1000);
             Console.WriteLine("Чтобы открыть файл -- 1 \nЧтобы внести новых пользователей -- 2 \nЧтобы удалить пользователей -- 3");
@@ -29,16 +29,16 @@ namespace Homework7_class_
                 
                 Worker worker = new Worker();
 
-                
-                //repository.WorkerID(worker);
+
 
                 //Console.WriteLine("Введите ID");
                 //worker.Id = int.Parse(Console.ReadLine());
+
                 
 
                 worker.Addtime = DateTime.Now;
 
-                Console.WriteLine(" Введите Ваше ФИО ");  
+                Console.WriteLine("Введите Ваше ФИО");  
                 worker.Fullname = Console.ReadLine();
                
                 Console.WriteLine("Введите возраст");

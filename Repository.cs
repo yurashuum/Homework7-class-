@@ -9,9 +9,7 @@ namespace Homework7_class_
 {
     public class Repository
     {
-        int MaxId;
-
-       
+        public int MaxId;
 
         /// <summary>
         /// конструктор
@@ -19,40 +17,28 @@ namespace Homework7_class_
        public Repository()
         {
             this.MaxId = 0;
-            
-           
+            Load();
+            MaxId++;
+
+        }
+        public void Load() 
+        {
+            using (StreamReader sr = new StreamReader(@"C:\Users\Ксения\source\repos\Homework7(class)\bin\Debug\Справочник.txt"))
+            {
+
+
+
+                while (!sr.EndOfStream)
+                {
+                    string[] args = sr.ReadLine().Split('#');
+
+                    Addworkers(new Worker(int.Parse(args[0]), DateTime.Parse(args[1]), args[2], int.Parse(args[3]), int.Parse(args[4]), DateTime.Parse(args[5]), args[6]));
+                    
+                }
+            }
         }
 
-       
-      
-        //public void WorkerID(Worker worker)
-        //{
-            
-        //    string file = @"C:\Users\Ксения\source\repos\Homework7(class)\bin\Debug\Справочник.txt";
-        //      FileInfo fileInfo = new FileInfo(file);
-        //    if (fileInfo.Exists)
-        //    {
-        //        using (StreamReader readDirectory = new StreamReader("Справочник.txt"))
-        //        {
-                    
 
-        //            int[] id = new int[1000];
-        //            int newId = id.Max() + 1;
-
-        //            worker.Id = newId;
-
-
-
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        worker.Id = 1;
-        //    }
-        //}
-
-        
 
         public void Addworkers(Worker worker)
         {
@@ -67,52 +53,24 @@ namespace Homework7_class_
 
                 
                 swDirect.WriteLine($"ID:{worker.Id} | Время:{worker.Addtime} | ФИО:{worker.Fullname} | Возраст:{worker.Age} | Рост:{worker.Height} | Дата рождения:{worker.WasBorn} | Место проживания:{worker.City}\n");
-
+                
             }
         }
 
         public void DeleteWorker(int id) 
         {
 
-        }
+        } 
 
-        //public void readFile()
-        //{
-
-        //    string file = @"C:\Users\Ксения\source\repos\Homework7(class)\bin\Debug\Справочник.csv";
-        //    FileInfo fileInfo = new FileInfo(file);
-        //    if (fileInfo.Exists)
-
-        //    {
-
-        //        using (StreamReader readDirectory = new StreamReader("Справочник.csv"))
-        //        {
-
-        //            while (!readDirectory.EndOfStream)
-        //            {
-        //                List<Worker> elements = new List<Worker>();
-        //                Console.WriteLine(Int32.Parse(elements[0]), DateTime.Now.Parse(elements[1]), elements[2], Int32.Parse(elements[3]), Int32.Parse(elements[4]), DateTime.Parse(elements[5]), elements[6]);
-        //            }
-
-
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine($"Файл отстутвует");
-        //    }
-        //}
-
-
-        //public void removeWorkers()
-        //{
-        //    List<Worker> workers = new List<Worker>();
-           
-        //}
     }
 
 }
+
+
+
+
+
+
 //List<Worker> workers = new List<Worker>();
 
 

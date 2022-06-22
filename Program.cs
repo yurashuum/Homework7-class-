@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
 
 namespace Homework7_class_
 {
@@ -13,68 +14,81 @@ namespace Homework7_class_
         { 
             Console.WriteLine("Нажмите определённую цифру, чтобы выолнить действие");
             Thread.Sleep(1000);
-            Console.WriteLine("Чтобы открыть файл -- 1 \nЧтобы внести новых пользователей -- 2 \nЧтобы удалить пользователей -- 3");
+            Console.WriteLine("Чтобы открыть файл -- 1 " +
+                "\nЧтобы внести новых пользователей -- 2 " +
+                "\nЧтобы удалить пользователей -- 3" +
+                "\nЧтобы выйти из программы -- 0");
 
-
-            Repository repository = new Repository();
-
-            int num = int.Parse(Console.ReadLine());
-
-            if (num == 1)
+            while (true)
             {
-                Console.WriteLine("ещё не готово:(");
-            }
-            else if (num == 2)
-            {
-                
-                Worker worker = new Worker();
+                Repository repository = new Repository();
 
+                int num = int.Parse(Console.ReadLine());
 
-
-                //Console.WriteLine("Введите ID");
-                //worker.Id = int.Parse(Console.ReadLine());
-
-                
-
-                worker.Addtime = DateTime.Now;
-
-                Console.WriteLine("Введите Ваше ФИО");  
-                worker.Fullname = Console.ReadLine();
-               
-                Console.WriteLine("Введите возраст");
-                string ageInput = Console.ReadLine();
-                int age = 0;
-                while (!int.TryParse(ageInput, out age))
+                if (num == 1)
                 {
-                    Console.WriteLine("Возраст это число!");
-                    ageInput = Console.ReadLine();
+                    FileInfo fileInfo = new FileInfo("Справочник.txt");
+                    if (fileInfo.Exists)
+                    {
+                        Console.WriteLine("Файл ещё не создан!");
+                    }
+                    else
+                    {
+                        repository.ReadWorker();
+                        repository.PrintWorker();
+                    }
                 }
-                worker.Age = age;
-                
-                Console.WriteLine("Введите Рост");
-                string heighInput = Console.ReadLine();
-                int heigh = 0;
-                while (!int.TryParse(heighInput, out heigh))
+                else if (num == 2)
                 {
-                    Console.WriteLine("Рост это число!");
-                    heighInput = Console.ReadLine();
+
+                    Worker worker = new Worker();
+
+                    //repository.GetMaxiD();
+                    worker.Addtime = DateTime.Now;
+
+                    Console.WriteLine("Введите Ваше ФИО");
+                    worker.Fullname = Console.ReadLine();
+
+                    Console.WriteLine("Введите возраст");
+                    string ageInput = Console.ReadLine();
+                    int age = 0;
+                    while (!int.TryParse(ageInput, out age))
+                    {
+                        Console.WriteLine("Возраст это число!");
+                        ageInput = Console.ReadLine();
+                    }
+                    worker.Age = age;
+
+                    Console.WriteLine("Введите Рост");
+                    string heighInput = Console.ReadLine();
+                    int heigh = 0;
+                    while (!int.TryParse(heighInput, out heigh))
+                    {
+                        Console.WriteLine("Рост это число!");
+                        heighInput = Console.ReadLine();
+                    }
+                    worker.Height = heigh;
+
+                    Console.WriteLine("Введите дату рождения");
+                    worker.WasBorn = DateTime.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Введите место рождения");
+                    worker.City = Console.ReadLine();
+
+                    repository.Addworkers(worker);
+                    repository.Writeworkers();
+
+
                 }
-                worker.Height = heigh;
+                else if (num == 3)
+                {
+                    Console.WriteLine("ещё не готово:(");
+                }
+
+                else if (num == 0)
+                break;
                 
-                Console.WriteLine("Введите дату рождения");
-                worker.WasBorn = DateTime.Parse(Console.ReadLine());
-
-                Console.WriteLine("Введите место рождения");
-                worker.City = Console.ReadLine();
-
-                repository.Addworkers(worker);
             }
-            else if (num == 3)
-            {
-                Console.WriteLine("ещё не готово:(");
-            }
-
-
            
 
          

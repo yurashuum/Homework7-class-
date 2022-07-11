@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+
 namespace Homework7_class_
 {
     public class Repository
     {
 
-        public List<Worker> workers;
+        public List<Worker> workers { get; private set; }
 
         /// <summary>
         /// конструктор
@@ -20,7 +21,7 @@ namespace Homework7_class_
             workers = ReadWorker();
         }
 
-        public int GetMaxiD()
+        public static int GetMaxiD(List<Worker> workers)
         {
             if (workers != null)
             {
@@ -28,7 +29,10 @@ namespace Homework7_class_
                 return ++maxId;
 
             }
-            return 0;
+            else
+            {
+                return 0;
+            }
         }
 
         public List<Worker> ReadWorker()
@@ -36,11 +40,11 @@ namespace Homework7_class_
                 using (StreamReader swDirect = new StreamReader(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt"))
                 {
 
-                    while (!swDirect.EndOfStream)
+                    while (swDirect.EndOfStream)
                     {
-
                         string[] args = swDirect.ReadLine().Split('#');
-
+                    foreach (string arg in args)
+                    {
                         workers.Add(new Worker(
 
                             int.Parse(args[0]),
@@ -50,7 +54,7 @@ namespace Homework7_class_
                             int.Parse(args[4]),
                             DateTime.Parse(args[5]),
                             args[6]));
-                    
+                    }
                     }
                 }
 
@@ -81,14 +85,16 @@ namespace Homework7_class_
 
                 foreach (Worker worker in workers)
                 {
-                    swDirect.WriteLine($"ID:{worker.Id} # Время:{worker.Addtime} # ФИО:{worker.Fullname} # Возраст:{worker.Age} # Рост:{worker.Height} # Дата рождения:{worker.WasBorn} # Место проживания:{worker.City}\n");
+                    swDirect.WriteLine($"ID:{worker.Id} # Время:{worker.Addtime} # ФИО:{worker.Fullname} # Возраст:{worker.Age} # Рост:{worker.Height} # Дата рождения:{worker.WasBorn} # Город:{worker.City}\n");
                 }
         }
 
-        public void DeleteWorker(int id)
+        public void DeleteWorker(List<Worker> workers, int Id)
         {
-
+            var itemToDelete = workers.Where(worker => worker.Id == Id).Select(x => x).First();
+            workers.Remove(itemToDelete);
         }
+
 
 
     }

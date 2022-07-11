@@ -27,7 +27,8 @@ namespace Homework7_class_
 
                 if (num == 1)
                 {
-                    FileInfo fileInfo = new FileInfo("Справочник.txt");
+                    string path = @"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt";
+                    FileInfo fileInfo = new FileInfo(path);
                     if (fileInfo.Exists)
                     {
                         Console.WriteLine("Файл ещё не создан!");
@@ -43,7 +44,8 @@ namespace Homework7_class_
 
                     Worker worker = new Worker();
 
-                    //repository.GetMaxiD();
+                    worker.Id = Repository.GetMaxiD(repository.workers);
+                    
                     worker.Addtime = DateTime.Now;
 
                     Console.WriteLine("Введите Ваше ФИО");
@@ -82,7 +84,7 @@ namespace Homework7_class_
                 }
                 else if (num == 3)
                 {
-                    Console.WriteLine("ещё не готово:(");
+                    Console.WriteLine("Ещё не готово");
                 }
 
                 else if (num == 0)

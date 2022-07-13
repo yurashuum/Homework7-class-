@@ -37,28 +37,39 @@ namespace Homework7_class_
 
         public List<Worker> ReadWorker()
         {
-                using (StreamReader swDirect = new StreamReader(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt"))
-                {
+            using (StreamReader swDirect = new StreamReader(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt"))
+            {
 
+                FileInfo file = new FileInfo(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt");
+
+                string path = @"Справочник.txt";
+                if (!file.Exists)
+                {
+                    File.Create(path);
+                }
+
+                else
+                {
                     while (swDirect.EndOfStream)
                     {
                         string[] args = swDirect.ReadLine().Split('#');
-                    foreach (string arg in args)
-                    {
-                        workers.Add(new Worker(
+                        foreach (string arg in args)
+                        {
+                            workers.Add(new Worker(
 
-                            int.Parse(args[0]),
-                            DateTime.Parse(args[1]),          //вх строка имела не верный формат
-                            args[2],
-                            int.Parse(args[3]),
-                            int.Parse(args[4]),
-                            DateTime.Parse(args[5]),
-                            args[6]));
-                    }
+                                int.Parse(args[0]),
+                                DateTime.Parse(args[1]),          //вх строка имела не верный формат
+                                args[2],
+                                int.Parse(args[3]),
+                                int.Parse(args[4]),
+                                DateTime.Parse(args[5]),
+                                args[6]));
+                        }
                     }
                 }
 
-            return workers;
+                return workers;
+            }
             
         }
 

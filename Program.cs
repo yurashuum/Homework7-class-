@@ -29,7 +29,7 @@ namespace Homework7_class_
                 {
                     string path = @"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt";
                     FileInfo fileInfo = new FileInfo(path);
-                    if (fileInfo.Exists)
+                    if (!fileInfo.Exists)
                     {
                         Console.WriteLine("Файл ещё не создан!");
                     }

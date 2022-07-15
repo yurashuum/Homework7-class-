@@ -10,6 +10,7 @@ namespace Homework7_class_
     public class Repository
     {
 
+        string _fileName = "@Справочник.txt";
         public List<Worker> workers { get; private set; }
 
         /// <summary>
@@ -37,12 +38,12 @@ namespace Homework7_class_
 
         public List<Worker> ReadWorker()
         {
-            using (StreamReader swDirect = new StreamReader(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt"))
+            using (StreamReader swDirect = new StreamReader(_fileName))
             {
 
-                FileInfo file = new FileInfo(@"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt");
+                FileInfo file = new FileInfo(_fileName);
 
-                string path = @"Справочник.txt";
+                string path = _fileName;
                 if (!file.Exists)
                 {
                     File.Create(path);

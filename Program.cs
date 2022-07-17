@@ -27,18 +27,12 @@ namespace Homework7_class_
 
                 if (num == 1)
                 {
-                    string path = @"C:\Users\yura_\Desktop\Проекты(образование)\Homework7(class)\bin\Debug\Справочник.txt";
-                    FileInfo fileInfo = new FileInfo(path);
-                    if (!fileInfo.Exists)
-                    {
-                        Console.WriteLine("Файл ещё не создан!");
-                    }
-                    else
-                    {
+      
                         repository.ReadWorker();
                         repository.PrintWorker();
-                    }
+                    
                 }
+               
                 else if (num == 2)
                 {
 

@@ -38,20 +38,20 @@ namespace Homework7_class_
 
         public List<Worker> ReadWorker()
         {
-            using (StreamReader swDirect = new StreamReader(_fileName))
+            FileInfo file1 = new FileInfo(_fileName);
+            string path = _fileName;
+            if (!file1.Exists)
             {
-
-                FileInfo file = new FileInfo(_fileName);
-
-                string path = _fileName;
-                if (!file.Exists)
+                File.Create(path);
+            }
+            
+                using (StreamReader swDirect = new StreamReader(_fileName))
                 {
-                    File.Create(path);
-                }
 
-                else
-                {
-                    while (swDirect.EndOfStream)
+                    FileInfo file = new FileInfo(_fileName);
+
+                    
+                    while (!swDirect.EndOfStream)
                     {
                         string[] args = swDirect.ReadLine().Split('#');
                         foreach (string arg in args)
@@ -67,7 +67,7 @@ namespace Homework7_class_
                                 args[6]));
                         }
                     }
-                }
+                
 
                 return workers;
             }

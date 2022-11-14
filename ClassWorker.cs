@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework7_class_
 {
@@ -59,43 +56,5 @@ namespace Homework7_class_
         {
         }
         #endregion
-
-        //# region Поля
-        ///// <summary>
-        ///// Айди 
-        ///// </summary>
-        //public Guid id;
-
-        ///// <summary>
-        ///// Время добавления
-        ///// </summary>
-        //public DateTime addtime;
-
-        ///// <summary>
-        ///// Полное имя
-        ///// </summary>
-        //public string fullname;
-
-        ///// <summary>
-        ///// Возраст
-        ///// </summary>
-        //public int age;
-
-        ///// <summary>
-        ///// Возраст
-        ///// </summary>
-        //public int height;
-
-        ///// <summary>
-        ///// Дата рождения
-        ///// </summary>
-        //public DateTime wasBorn;
-
-        ///// <summary>
-        ///// Город 
-        ///// </summary>
-        //public string city;
-
-        //#endregion
     }
 }

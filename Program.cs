@@ -11,35 +11,35 @@ namespace Homework7_class_
     internal class Program
     {
         static void Main(string[] args)
-        { 
-            Console.WriteLine("Нажмите определённую цифру, чтобы выолнить действие");
-            Thread.Sleep(1000);
-            Console.WriteLine("Чтобы открыть файл -- 1 " +
-                "\nЧтобы внести новых пользователей -- 2 " +
-                "\nЧтобы удалить пользователей -- 3" +
-                "\nЧтобы выйти из программы -- 0");
-
+        {
             while (true)
             {
-                Repository repository = new Repository();
+                Console.WriteLine("Нажмите определённую цифру, чтобы выолнить действие");
+                Thread.Sleep(1000);
+                Console.WriteLine("Чтобы открыть файл -- 1 " +
+                    "\nЧтобы внести новых пользователей -- 2 " +
+                    "\nЧтобы удалить пользователей -- 3" +
+                    "\nЧтобы выйти из программы -- 0");
+
 
                 int num = int.Parse(Console.ReadLine());
+                Repository repository = new Repository();
 
                 if (num == 1)
                 {
-      
-                        repository.ReadWorker();
-                        repository.PrintWorker();
-                    
+
+                    repository.ReadWorker();
+                    repository.PrintWorker();
+
                 }
-               
+
                 else if (num == 2)
                 {
 
                     Worker worker = new Worker();
 
                     worker.Id = Repository.GetMaxiD(repository.workers);
-                    
+
                     worker.Addtime = DateTime.Now;
 
                     Console.WriteLine("Введите Ваше ФИО");
@@ -78,12 +78,15 @@ namespace Homework7_class_
                 }
                 else if (num == 3)
                 {
-                    Console.WriteLine("Ещё не готово");
+                    
+                    repository.SortBirthday();
+
+                    Console.WriteLine("не Готово");
                 }
 
                 else if (num == 0)
-                break;
-                
+                    break;
+
             }
            
 

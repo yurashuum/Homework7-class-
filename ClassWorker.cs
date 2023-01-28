@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Homework7_class_
 {
-    public class Worker
+    public class Worker 
     {
         /// <summary>
         /// Айди сотрудника 

@@ -89,6 +89,7 @@ namespace Homework7_class_
 
             return workers;
 
+            
         }
 
 
@@ -146,12 +147,12 @@ namespace Homework7_class_
         {
             var SortedWorkers = workers.OrderBy(item => item.WasBorn);
 
-            foreach (var worker in SortedWorkers)
+            foreach (var w in SortedWorkers)
             {
-                Console.WriteLine(worker.Print());
+                Console.WriteLine(w.Print());
             }
                 
-            Console.WriteLine();
+            
         }
 
     }

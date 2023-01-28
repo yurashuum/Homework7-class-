@@ -78,7 +78,9 @@ namespace Homework7_class_
                 }
                 else if (num == 3)
                 {
+
                     
+                    repository.ReadWorker();
                     repository.SortBirthday();
 
                     Console.WriteLine("не Готово");
